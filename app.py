@@ -14,18 +14,18 @@ df1 = pd.read_csv(fn1, encoding='latin1')
 st.dataframe(df1)
 
 # Fungsi untuk membuat visualisasi
-def visualize_top_10(df):
-    # Ambil 10 baris pertama
-    top_10 = df.head(10)
+def visualize_top_5(df):
+    # Ambil 5 baris pertama
+    top_5 = df.head(5)
 
     # Ambil kolom yang relevan
-    judul_film = top_10['judul']
-    rating = top_10['rating']
+    name = top_5['name']
+    rating = top_5['rating']
 
     # Buat visualisasi
     plt.figure(figsize=(10, 8))
-    plt.barh(judul_film, rating, color='skyblue')
-    plt.title('Top 10 Rating Film di IMDB')
+    plt.barh(name, rating, color='skyblue')
+    plt.title('Top 5 Rating Film di IMDB')
     plt.xlabel('Rating')
-    plt.ylabel('Judul Film')
+    plt.ylabel('Name')
     st.pyplot(plt)
